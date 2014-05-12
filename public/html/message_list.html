@@ -1,0 +1,29 @@
+<div id="messages">
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>messages</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <ul id="messages">
+        <li ng-repeat="msg in messages">
+          <div class="row">
+            <div class="large-3 columns">
+              <b>to</b>: {{msg.messagedUser.shortID | limitTo:12}}
+            </div>
+            <div class="large-3 columns">
+              <b>subject</b>: {{msg.subject}}
+            </div>
+            <div class="large-6 columns">
+              <b>body</b>: {{msg.body | limitTo:40}}
+            </div>
+            <hr>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+{
+  "databaseConfig": {
+    "host": "xxxxx",
+    "database": "xxxxx",
+    "user": "xxxxx",
+    "password": "xxxxx"
+  },
+  "host": "localhost",
+  "port": 8000,
+  "liveReloadPort": "35729"
+}

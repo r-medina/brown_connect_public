@@ -1,0 +1,64 @@
+<div id="message-form">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h1>create message</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-8 large-offset-2 small-12 columns">
+
+      <div class="row">
+        <div class="small-12 columns">
+          <b>to</b>: {{msg.user.name}}
+          <hr>
+        </div>
+      </div>
+
+      <form name="messageForm" action="/message" send-msg>
+        <div class="row">
+          <div class="small-12 columns">
+            <label> subject
+              <input type="text" name="subject" ng-model="message.subject" required/>
+            </label>
+            <small ng-show="messageForm.subject.$invalid && messageForm.subject.$dirty"
+                   class="error">
+              subject required
+            </small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <label> body
+              <textarea type="text" name="body" ng-model="message.body" required/>
+            </label>
+            <small ng-show="messageForm.body.$invalid && messageForm.body.$dirty"
+                   class="error">
+              body required
+            </small>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <a ng-hide="msg.success" class="small button" id="submit-message">send</a>
+
+            <div ng-show="msg.success" data-alert class="alert-box success radius">
+              message sent successfully!
+              <a href="#/{{msg.user.shortID}}/profile" class="close">&times;</a>
+            </div>
+
+            <div ng-show="msg.err" data-alert class="alert-box alert radius">
+              {{msg.err | lowercase}}
+              <a href="#/{{msg.user.shortID}}/profile" class="close">&times;</a>
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

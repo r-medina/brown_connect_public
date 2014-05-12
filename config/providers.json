@@ -1,0 +1,20 @@
+{
+  "google": {
+    "name": "google",
+    "clientID": "xxxxx",
+    "email": "xxxxx",
+    "secret": "xxxxx",
+    "redirectURL": "/user/oauth_callback/google",
+    "scope": "https://www.googleapis.com/auth/userinfo.email"
+  },
+  "linkedin": {
+    "name": "linkedin",
+    "key": "xxxxx",
+    "secret": "xxxxx",
+    "callbackURL": "/user/oauth_callback/linkedin"
+  },
+  "gmail": {
+    "user": "xxxxx",
+    "pass": "xxxxx"
+  }
+}

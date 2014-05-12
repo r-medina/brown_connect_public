@@ -1,0 +1,142 @@
+$trans-duration: 0.2s;
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav.push-menu {
+    background: darken($gray, 16%);
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 0;
+    z-index: 9999;
+    overflow: auto;
+    color: $light-gray;
+    -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
+    -webkit-transition-property: -webkit-transform;
+       -moz-transition-property: -moz-transform;
+        -ms-transition-property: -ms-transform;
+         -o-transition-property: -o-transform;
+            transition-property: transform;
+    -webkit-transition-duration: $trans-duration;
+       -moz-transition-duration: $trans-duration;
+        -ms-transition-duration: $trans-duration;
+         -o-transition-duration: $trans-duration;
+            transition-duration: $trans-duration;
+
+    @media #{$medium-up} {
+        -webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+        -moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+        box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, .7);
+        font-weight: 100;
+    }
+
+    a {
+        display: block;
+        color: $white;
+        padding: .5em 1em;
+        font-size: 1.1em;
+        text-decoration: none;
+    }
+
+    a:hover, a:focus {
+        background: black;
+    }
+}
+
+.push-menu-left {
+    -webkit-transform: translate3d(-200px,0,0);
+       -moz-transform: translate3d(-200px,0,0);
+        -ms-transform: translate3d(-200px,0,0);
+         -o-transform: translate3d(-200px,0,0);
+            transform: translate3d(-200px,0,0);
+}
+
+.push-menu-open {
+    -webkit-transform: translate3d(0,0,0);
+       -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+         -o-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+}
+
+.push-container {
+    -webkit-transition-property: -webkit-transform;
+       -moz-transition-property: -moz-transform;
+        -ms-transition-property: -ms-transform;
+         -o-transition-property: -o-transform;
+            transition-property: transform;
+    -webkit-transition-duration: $trans-duration;
+       -moz-transition-duration: $trans-duration;
+        -ms-transition-duration: $trans-duration;
+         -o-transition-duration: $trans-duration;
+            transition-duration: $trans-duration;
+}
+
+.push-container-push, .push-menu-btn-push {
+    -webkit-transform: translate3d(200px,0,0);
+    -moz-transform: translate3d(200px,0,0);
+    -ms-transform: translate3d(200px,0,0);
+    -o-transform: translate3d(200px,0,0);
+    transform: translate3d(200px,0,0);
+}
+
+.push-site-overlay {
+    display: none;
+}
+
+.push-site-overlay.push-menu-open {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 200px;
+    z-index: 9999;
+}
+
+.push-menu-btn {
+    text-align: center;
+    color: $light-gray;
+    background: darken($gray, 16%);
+    text-align: center;
+    padding: .2em .5em;
+    display: block;
+    position: fixed;
+    z-index: 100;
+    top: 0em;
+    left: 0em;
+    border-radius : 0 0 15% 0;
+    opacity: .7;
+    font-size: 1.2em;
+    -webkit-transition-property: opacity, -webkit-tranform;
+       -moz-transition-property: opacity, -moz-tranform;
+        -ms-transition-property: opacity, -ms-tranform;
+         -o-transition-property: opacity, -o-tranform;
+            transition-property: opacity, tranform;
+    -webkit-transition-duration: $trans-duration;
+       -moz-transition-duration: $trans-duration;
+        -ms-transition-duration: $trans-duration;
+         -o-transition-duration: $trans-duration;
+            transition-duration: $trans-duration;
+
+    @media #{$medium-up} {
+        font-size: 1.3em;
+        border-radius: 15%;
+        top: .5em;
+        left: .5em;
+    }
+}
+
+.push-menu-btn:hover,
+.push-menu-btn:focus {
+    opacity: .9;
+}
+
+.push-menu-btn-push {
+    opacity: 1;
+}

@@ -1,0 +1,14 @@
+message <a href="#/message/user/{{$parent.profile.user.shortID}}" title="send message">
+  <i class="fa fa-envelope-o"></i>
+</a>&nbsp;
+<div class="inline" ng-hide="profile.user.starred">
+  star <a title="star user" ng-click="starUser()">
+    <i class="fa fa-star-o"></i>
+  </a>&nbsp;
+</div>
+<div class="inline" ng-show="profile.user.starred">
+  unstar <a title="unstar user" ng-click="unstarUser()">
+    <i class="fa fa-star"></i>
+  </a>&nbsp;
+</div>
+block <a title="block user"><i class="fa fa-ban"></i></a>

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="small-12 columns">
+    <a href="#/{{result._id}}/profile">
+      <h3 class="user-name">{{result.name}}</h3>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    message <a href="#/message/user/{{result._id}}">
+      <i class="fa fa-envelope-o"></i></a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+
+  </div>
+</div>
+
+<div class="row" ng-show="result.title">
+  <div class="small-12 columns">
+    <b>title</b>: {{result.title}}
+  </div>
+</div>
+
+<hr>

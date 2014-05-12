@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="small-12 columns">
+    <a href="#/{{result._id}}/profile">
+      <h3 class="user-name">{{result.name}}</h3>
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    message <a href="#/message/user/{{result._id}}">
+      <i class="fa fa-envelope-o"></i></a>&nbsp;
+    <div class="inline" ng-hide="result.starred">
+      star <a title="star user" ng-click="starUser(result)">
+        <i class="fa fa-star-o"></i>
+      </a>&nbsp;
+    </div>
+    <div class="inline" ng-show="result.starred">
+      unstar <a title="unstar user" ng-click="unstarUser(result)">
+        <i class="fa fa-star"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+
+  </div>
+</div>
+
+<div class="row" ng-show="result.title">
+  <div class="small-12 columns">
+    <b>title</b>: {{result.title}}
+  </div>
+</div>
+
+<div class="row" ng-show="result.opportunityTypes">
+  <div class="small-12 columns">
+    <b>opportunities I offer:</b>
+    <span ng-repeat="opp in result.opportunityTypes">
+      {{opp}}{{$last ? '' : ', '}}
+    </span>
+  </div>
+</div>
+
+<div class="row" ng-show="result.providerSummary">
+  <div class="small-12 columns">
+    <b>summary of opportunities I offer</b>: {{result.providerSummary}}
+  </div>
+</div>
+
+<div class="row" ng-show="result.skills">
+  <div class="small-12 columns">
+    <b>tags</b>:
+    <ul class="tag-list">
+      <li ng-repeat="tag in result.skills">
+        <span>{{tag.displayText}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" ng-show="result.locations">
+  <div class="small-12 columns">
+    <b>locations</b>:
+    <ul class="tag-list">
+      <li ng-repeat="tag in result.locations">
+        <span>{{tag.displayText}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" ng-show="result.companies">
+  <div class="small-12 columns">
+    <b>companies</b>:
+    <ul class="tag-list">
+      <li ng-repeat="tag in result.companies">
+        <span>{{tag.displayText}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+<hr>

@@ -1,0 +1,102 @@
+<div id="profile">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h1 class="user-name">{{profile.user.name}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h6 ng-include="additionalURL"></h6>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row">
+        <div class="large-4 columns">
+          <img ng-src="{{profile.user.photoURL}}">
+        </div>
+        <div class="large-8 columns">
+
+          <div class="row">
+            <div class="small-12 columns">
+              <p><b>title</b>: {{profile.user.title}}</p>
+            </div>
+          </div>
+
+          <div class="row" ng-show="profile.user.skills">
+            <div class="small-12 columns">
+              <b>tags</b>:
+              <ul class="tag-list">
+                <li ng-repeat="tag in profile.user.skills">
+                  <span title="remove" _id="{{tag._id}}" ng-click="removeTag($event)">
+                    {{tag.displayText}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="row" ng-show="profile.user.locations">
+            <div class="small-12 columns">
+              <b>locations</b>:
+              <ul class="tag-list">
+                <li ng-repeat="tag in profile.user.locations">
+                  <span title="remove" _id="{{tag._id}}" ng-click="removeTag($event)">
+                    {{tag.displayText}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row" ng-show="profile.user.companies">
+            <div class="small-12 columns">
+              <b>companies</b>:
+              <ul class="tag-list">
+                <li ng-repeat="tag in profile.user.companies">
+                  <span title="remove" _id="{{tag._id}}" ng-click="removeTag($event)">
+                    {{tag.displayText}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row" ng-show="profile.user.opportunityTypes">
+            <div class="small-12 columns">
+              <p>
+                <b>opportunities I offer:</b>
+                <span ng-repeat="opp in profile.user.opportunityTypes">
+                  {{opp}}{{$last ? '' : ', '}}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div class="row" ng-show="profile.user.opportunityTypes">
+            <div class="small-12 columns">
+              <p>
+                <b>summary of opportunities I offer</b>: {{profile.user.providerSummary}}
+              </p>
+            </div>
+          </div>
+
+          <div class="row" ng-show="profile.user.opportunityTypes">
+            <div class="small-12 columns">
+              <p>
+                <b>summary of opportunities I seek</b>: {{profile.user.seekerSummary}}
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>

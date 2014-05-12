@@ -1,0 +1,184 @@
+<div id="edit">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h1 class="sec-head">edit your profile</h1>
+    </div>
+  </div>
+
+  <div class="row" edit>
+    <div class="small-12 columns">
+
+      <form name="editForm" action="/user/edit">
+        <div class="row">
+          <div class="large-4 columns">
+            <img ng-src="{{edit.user.photoURL}}">
+          </div>
+          <div class="large-8 columns">
+            <div class="row">
+              <div class="small-12 columns">
+                <label> name
+                  <input type="text" ng-model="edit.user.name"/>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <label> title
+                  <input type="text" ng-model="edit.user.title" />
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <label> photo url
+                  <input type="url" ng-model="edit.user.photoURL"/>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-6 columns" tagType="skill" whichTags="skills"  ac-tags>
+            <label> tags
+              <input type="text" placeholder="skills, interests, whatever" name="skill"
+                     ng-model="edit.skill" ng-keyup="acKeyEvent($event, 'skill', 'skills')"
+                     ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/"
+                     data-dropdown="drop1" class="dropdown" id="skillIn" />
+            </label>
+
+            <ul class="f-dropdown low" ng-show="edit.tagSuggestions.skills">
+              <li style="text-align:center;">
+                <img src="/img/load/clear.gif" ng-hide="edit.tagSuggestions.skills" />
+              </li>
+              <li ng-repeat="tag in edit.tagSuggestions.skills">
+                <a href="#" _id="{{tag._id}}" displayText="{{tag.displayText}}"
+                   ng-click="addSuggestedTag($event, 'skill', 'skills')" tagList="tags">
+                  {{tag.displayText}}
+                </a>
+              </li>
+            </ul>
+
+            <div id="skill-tags">
+              <ul class="tag-list">
+                <li ng-repeat="tag in edit.user.skills">
+                  <a href="#" title="remove" _id="{{tag._id}}" ng-click="removeTag($event, 'skill', 'skills')">
+                    {{tag.displayText}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="large-6 columns" tagType="location" whichTags="locations" ac-tags>
+            <label> locations
+              <input type="text" placeholder="your locations" name="location"
+                     ng-model="edit.location"
+                     ng-keyup="acKeyEvent($event, 'location', 'locations')"
+                     data-dropdown="drop1" class="dropdown" id="locationIn" />
+            </label>
+
+            <ul class="f-dropdown low" ng-show="edit.tagSuggestions.locations">
+              <li style="text-align:center;">
+                <img src="/img/load/clear.gif" ng-hide="edit.tagSuggestions.locations" />
+              </li>
+              <li ng-repeat="tag in edit.tagSuggestions.locations">
+                <a href="#" _id="{{tag._id}}" displayText="{{tag.displayText}}"
+                   ng-click="addSuggestedTag($event, 'location', 'locations')">
+                  {{tag.displayText}}
+                </a>
+              </li>
+            </ul>
+
+            <div id="location-tags">
+              <ul class="tag-list">
+                <li ng-repeat="tag in edit.user.locations">
+                  <a href="#" title="remove" _id="{{tag._id}}"
+                     ng-click="removeTag($event, 'location', 'locations')">
+                    {{tag.displayText}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns" tagType="company" whichTags="companies" ac-tags>
+            <label> companies
+              <input type="text" placeholder="company affiliations" name="company"
+                     ng-model="edit.company"
+                     ng-keyup="acKeyEvent($event, 'company', 'companies')"
+                     data-dropdown="drop1" class="dropdown" id="companyIn"  />
+            </label>
+
+            <ul class="f-dropdown low" ng-show="edit.tagSuggestions.companies">
+              <li style="text-align:center;">
+                <img src="/img/load/clear.gif" ng-hide="edit.tagSuggestions.companies" />
+              </li>
+              <li ng-repeat="tag in edit.tagSuggestions.companies">
+                <a href="#" _id="{{tag._id}}" displayText="{{tag.displayText}}"
+                   ng-click="addSuggestedTag($event, 'company', 'companies')">
+                  {{tag.displayText}}
+                </a>
+              </li>
+            </ul>
+
+            <div id="company-tags">
+              <ul class="tag-list">
+                <li ng-repeat="tag in edit.user.companies">
+                  <a href="#" title="remove" _id="{{tag._id}}"
+                     ng-click="removeTag($event, 'company', 'companies')">
+                    {{tag.displayText}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <input type="checkbox" id="checkbox1"
+                 ng-model="edit.user.companyOptIn" />
+          <label for="checkbox1">searchable by company</label>
+
+        </div>
+
+        <div id="checkboxes">
+          <fieldset>
+            <legend>opportunity types you wish to provide</legend>
+            <input type="checkbox" id="checkbox2"
+                   ng-model="edit.opportunityObj['mentorship']" />
+            <label for="checkbox2">mentorship</label>
+            <input type="checkbox" id="checkbox3"
+                   ng-model="edit.opportunityObj['funding']" />
+            <label for="checkbox3">funding</label>
+            <input type="checkbox" id="checkbox4"
+                   ng-model="edit.opportunityObj['employment']" />
+            <label for="checkbox4">employment</label>
+            <input type="checkbox" id="checkbox5"
+                   ng-model="edit.opportunityObj['networking']" />
+            <label for="checkbox5">networking</label>
+          </fieldset>
+        </div>
+
+
+        <label ng-show="edit.isProvider()"> summary of opportunities you offer
+          <textarea type="text" ng-model="edit.user.providerSummary" />
+        </label>
+
+        <label> summary of opportunities you seek
+          <textarea type="text" ng-model="edit.user.seekerSummary" />
+        </label>
+
+        <a class="button expand tiny radius" id="submit-edit">
+          <i class="fa fa-arrow-circle-right"></i>
+        </a>
+
+      </form>
+      
+    </div>
+  </div>
+  
+</div>

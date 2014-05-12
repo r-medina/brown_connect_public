@@ -1,0 +1,111 @@
+<div id="search">
+
+  <div class="row">
+    <div class="small-12 columns">
+      <h1 class="sec-head">search</h1>
+    </div>
+  </div>
+
+  <div class="row" search>
+    <div class="large-4 columns">
+      <div class="row">
+        <div class="small-12 columns">
+          <form name="searchForm" action="/search">
+
+            <input type="text" placeholder="tags to search" name="tagString"
+                   ng-model="search.tagString" ng-keyup="searchKeyEvent($event)"
+                   ng-pattern="/^([a-zA-Z]+\s)*[a-zA-Z]+$/"
+                   data-dropdown="drop1" class="dropdown" id="tagIn" required />
+            <small 
+               ng-show="searchForm.tagString.$error.notFound && searchForm.tagString.$dirty"
+               class="error">
+              no similar tags in the database
+            </small>
+
+            <ul class="f-dropdown" ng-show="search.tagSuggestions">
+              <li style="text-align:center;">
+                <img src="/img/load/clear.gif" ng-hide="search.tagSuggestions" />
+              </li>
+              <li ng-repeat="tag in search.tagSuggestions">
+                <a href="#" _id="{{tag._id}}" displayText="{{tag.displayText}}"
+                   ng-click="addSuggestedTag($event)">
+                  {{tag.displayText}}
+                </a>
+              </li>
+            </ul>
+
+            <div id="checkboxes">
+              <div class="row collapse">
+                <div class="small-6 columns">
+                  <div class="row">
+                    <input type="checkbox" id="checkbox1"
+                           ng-model="search.opportunityTypes[0]"
+                           ng-true-value="mentorship" ng-false-value="" />
+                    <label for="checkbox1">mentorship</label>
+                  </div>
+                  <div class="row">
+                    <input type="checkbox" id="checkbox2"
+                           ng-model="search.opportunityTypes[1]"
+                           ng-true-value="funding" ng-false-value="" />
+                    <label for="checkbox2">funding</label>
+                  </div>
+                </div>
+                <div class="small-6 columns">
+                  <div class="row">
+                    <input type="checkbox" id="checkbox3"
+                           ng-model="search.opportunityTypes[2]"
+                           ng-true-value="employment" ng-false-value="" />
+                    <label for="checkbox3">employment</label>
+                  </div>
+                  <div class="row">
+                    <input type="checkbox" id="checkbox4"
+                           ng-model="search.opportunityTypes[3]"
+                           ng-true-value="networking" ng-false-value="" />
+                    <label for="checkbox4">networking</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="search-tags">
+              <ul class="tag-list">
+                <li ng-repeat="tag in search.tags">
+                  <a href="#" title="remove" _id="{{tag._id}}" ng-click="removeTag($event)">
+                    {{tag.displayText}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="row">
+              <div class="small-12 columns">
+                <!-- no submit button, ng-click -->
+                <a href="#" id="run-search">
+                  <span class="button expand tiny radius"><i class="fa fa-search"></i></span>
+                </a>
+              </div>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="large-8 columns" id="search-results">
+
+      <div class="row" ng-hide="search.results.length > 0">
+        <div class="small-12 columns centering ">
+          <h4>no results</h4>
+        </div>
+      </div>
+
+      <ul>
+        <li class="search-result" ng-repeat="result in search.results">
+          <div ng-include="'html/search_result.html'"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</div>

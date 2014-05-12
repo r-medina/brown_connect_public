@@ -1,36 +1,69 @@
 {
   "name": "internship-initiative",
+  "private": "true",
   "version": "0.1.0",
   "description": "a web app for brown students to find mentorship, internships, and funding",
-  "author": "r-medina, bvishny, prestonlaw",
+  "author": "r-medina, bvishny, prestonlaw, prateekarora090",
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/r-medina/internship_initiative.git"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "kraken-js": "~0.7.0",
+    "kraken-js": "~0.7.3",
     "express": "~3.4.4",
     "adaro": "~0.1.x",
     "nconf": "~0.6.8",
     "less": "~1.6.1",
     "dustjs-linkedin": "~2.0.3",
     "dustjs-helpers": "~1.1.1",
-    "makara": "~0.3.0"
+    "makara": "~0.3.0",
+    "bower": "~1.2.8",
+    "mongoose": "~3.8.7",
+    "natural": "~0.1.27",
+    "passport-google-oauth": "~0.1.5",
+    "passport-linkedin-oauth2": "~1.1.1",
+    "passport": "~0.2.0",
+    "MD5": "~1.2.1",
+    "nodemailer": "~0.6.2",
+    "shortid": "~2.0.0"
   },
   "devDependencies": {
-    "mocha": "~1.17.0",
     "supertest": "~0.8.2",
     "grunt": "~0.4.1",
-    "grunt-contrib-less": "~0.9.0",
     "grunt-dustjs": "~1.2.0",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-cssmin": "~0.8.0",
     "grunt-mocha-cli": "~1.5.0",
-    "grunt-copy-to": "0.0.10"
+    "grunt-copy-to": "0.0.10",
+    "grunt-develop": "~0.3.0",
+    "matchdep": "~0.3.0",
+    "connect-livereload": "~0.3.2",
+    "grunt-githooks": "~0.3.1",
+    "karma-script-launcher": "~0.1.0",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.5",
+    "requirejs": "~2.1.11",
+    "karma-requirejs": "~0.2.1",
+    "karma-coffee-preprocessor": "~0.1.3",
+    "karma-phantomjs-launcher": "~0.1.2",
+    "karma": "~0.10.9",
+    "grunt-karma": "~0.6.2",
+    "grunt-jsbeautifier": "~0.2.7",
+    "js-beautify": "~1.5.1"
   }
 }

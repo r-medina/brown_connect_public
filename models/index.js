@@ -2,7 +2,8 @@
 
 
 module.exports = function IndexModel() {
-    return {
-        name: 'internship-initiative'
-    };
+  return {
+    name: 'BrownConnect',
+    min: process.env.NODE_ENV === 'development' ? '' : '.min'
+  };
 };
