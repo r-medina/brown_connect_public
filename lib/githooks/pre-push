@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# for making sure you only push public branch to public remote. eventually should do more
+
+remote="$1"
+# current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,') # for use later
+
+if [ "public" = $remote ]
+then
+    while read local_ref local_sha remote_ref remote_sha
+    do
+        if [ "$(git symbolic-ref public)" = "$local_sha" ]
+        then
+            exit 0
+        fi
+    done
+    echo "You can only push the public branch to public remote."
+    exit 1
+fi
+
+exit 0

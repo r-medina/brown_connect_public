@@ -2,22 +2,22 @@
 
 
 define('directives/edit', [
-  'directives/directives'
+    'directives/directives'
 ], function (mainDirectives) {
 
-  mainDirectives.directive('edit', function () {
+    mainDirectives.directive('edit', function () {
 
-    var link = function (scope, element) {
-      element.find('#submit-edit').on('click', function (e) {
-        e.preventDefault();
-        scope.makeEdit();
-      });
-    };
+        var link = function (scope, element) {
+            element.find('#submit-edit').on('click', function (e) {
+                e.preventDefault();
+                scope.makeEdit();
+            });
+        };
 
-    return {
-      link: link
-    };
+        return {
+            link: link
+        };
 
-  });
+    });
 
 });

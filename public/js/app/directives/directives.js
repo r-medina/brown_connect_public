@@ -2,5 +2,5 @@
 
 
 define('directives/directives', [], function () {
-  return angular.module('mainDirectives', []);
+    return angular.module('mainDirectives', []);
 });

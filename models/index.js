@@ -2,8 +2,8 @@
 
 
 module.exports = function IndexModel() {
-  return {
-    name: 'BrownConnect',
-    min: process.env.NODE_ENV === 'development' ? '' : '.min'
-  };
+    return {
+        name: 'BrownConnect',
+        min: process.env.NODE_ENV === 'development' ? '' : '.min'
+    };
 };

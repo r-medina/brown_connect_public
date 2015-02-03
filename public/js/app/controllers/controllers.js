@@ -2,5 +2,5 @@
 
 
 define('controllers/controllers', [], function () {
-  return angular.module('mainControllers', []);
+    return angular.module('mainControllers', []);
 });

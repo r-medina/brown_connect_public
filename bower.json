@@ -9,6 +9,7 @@
     "angular-resource": "~1.2.14",
     "angular-mocks": "~1.2.14",
     "foundation": "zurb/bower-foundation",
-    "font-awesome": "~4.0.2"
+    "font-awesome": "~4.0.2",
+    "modernizr": "~2.8.2"
   }
 }
