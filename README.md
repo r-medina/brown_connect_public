@@ -90,7 +90,7 @@ differentiate user permissions.
 Kraken also comes with an easy way to minify and compile assets for production
 environments. This is extremely helpful, as serving many large files definitely
 strains the server. Kraken also comes with
-[Mocha](http://visionmedia.github.io/mocha/), a server-side JavaScript testing
+[Mocha](http://mochajs.org/), a server-side JavaScript testing
 framework, which, at first at least, allowed for easy testing of our developement
 environment installations.
 
